@@ -2,9 +2,58 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="410dp"
+    android:layout_height="730dp"
     tools:context=".LoginScreen"
     android:background="@drawable/login_screen_out">
+
+    <EditText
+        android:id="@+id/txt_email_login"
+        android:layout_width="323dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="248dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_password_login"
+        android:layout_width="321dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="54dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_email_login" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:onClick="login_clicked"
+        android:layout_width="318dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_password_login" />
+
+    <Button
+        android:id="@+id/signup_button"
+        android:onClick="go_to_register"
+        android:layout_width="318dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="76dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
