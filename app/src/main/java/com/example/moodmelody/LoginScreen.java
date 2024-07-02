@@ -13,19 +13,20 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class LoginScreen extends AppCompatActivity {
 
-    EditText txt_email, txt_password;
+    TextInputLayout txt_email, txt_password;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
-
+        Log.d("TAG", "onCreate: INSIDE");
         mAuth = FirebaseAuth.getInstance();
         txt_email = findViewById(R.id.txt_email_login);
         txt_password = findViewById(R.id.txt_password_login);
@@ -50,8 +51,8 @@ public class LoginScreen extends AppCompatActivity {
 
     public void login_clicked(View view) {
         String email, password;
-        email = String.valueOf(txt_email.getText());
-        password = String.valueOf(txt_password.getText());
+        email = String.valueOf(txt_email.getEditText().getText());
+        password = String.valueOf(txt_password.getEditText().getText());
 
         if(TextUtils.isEmpty(email))
         {
@@ -79,7 +80,7 @@ public class LoginScreen extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginScreen.this, "Login Failed", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginScreen.this, "Login Failed" + task.getException().toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

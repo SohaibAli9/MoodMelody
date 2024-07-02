@@ -3,6 +3,7 @@ package com.example.moodmelody;
 import com.example.moodmelody.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,7 +22,7 @@ import android.widget.Toast;
 
 public class SignUpScreen extends AppCompatActivity {
 
-    TextView txt_username, txt_email, txt_password, txt_confirm_password;
+    TextInputLayout txt_username, txt_email, txt_password, txt_confirm_password;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,10 +51,10 @@ public class SignUpScreen extends AppCompatActivity {
 
     public void register_button_clicked(View view) {
         String username, email, password, confirm_password;
-        email = String.valueOf(txt_email.getText());
-        username = String.valueOf(txt_username.getText());
-        password = String.valueOf(txt_password.getText());
-        confirm_password = String.valueOf(txt_confirm_password.getText());
+        email = String.valueOf(txt_email.getEditText().getText());
+        username = String.valueOf(txt_username.getEditText().getText());
+        password = String.valueOf(txt_password.getEditText().getText());
+        confirm_password = String.valueOf(txt_confirm_password.getEditText().getText());
 
         Context passing_context = this;
         if(validating_credentials(username, email, password, confirm_password, passing_context))
