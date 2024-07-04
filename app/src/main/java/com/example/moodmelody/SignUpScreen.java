@@ -7,6 +7,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class SignUpScreen extends AppCompatActivity {
+    String currentUser;
+    DatabaseReference reference;
+    FirebaseDatabase database;
+    FirebaseUser user;
+
 
     TextInputLayout txt_username, txt_email, txt_password, txt_confirm_password;
     private FirebaseAuth mAuth;
@@ -28,6 +35,9 @@ public class SignUpScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_screen);
+        database = FirebaseDatabase.getInstance("https://moodmelody-cbf46-default-rtdb.asia-southeast1.firebasedatabase.app/");
+        reference = database.getReference("Email");
+        user= FirebaseAuth.getInstance().getCurrentUser();
 
         txt_username = findViewById(R.id.txt_signup_username);
         txt_email = findViewById(R.id.txt_signup_email);
@@ -76,6 +86,7 @@ public class SignUpScreen extends AppCompatActivity {
                         }
                     });
         }
+        reference.child(username).setValue(email);
 
     }
 
