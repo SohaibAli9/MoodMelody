@@ -2,75 +2,108 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="410dp"
-    android:layout_height="730dp"
-    tools:context=".SignUpScreen"
-    android:background="@drawable/signup_screen_out">
+    android:background="@drawable/signup_screen_out1"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".SignUpScreen">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txt_signup_email"
-        android:layout_width="318dp"
-        android:layout_height="48dp"
-        android:background="@android:color/transparent"
-        android:layout_marginTop="223dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="200dp"
+        android:inputType="textEmailAddress"
+        app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/baseline_mail_24">
 
-    <EditText
-        android:id="@+id/txt_signup_pass"
-        android:layout_width="318dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="44dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_signup_username" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@id/txt_signup_email"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/txt_signup_confirm_pass"
-        android:layout_width="318dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="44dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_signup_pass" />
 
-    <EditText
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txt_signup_username"
-        android:layout_width="318dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="44dp"
-        android:background="@android:color/transparent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="310dp"
+        android:inputType="textEmailAddress"
+        app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_signup_email" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/baseline_person_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@id/txt_signup_username"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_signup_pass"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="420dp"
+        android:inputType="textPassword"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/baseline_key_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@id/txt_signup_pass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_signup_confirm_pass"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="530dp"
+        android:inputType="textPassword"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/baseline_password_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@id/txt_signup_confirm_pass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btn_signup"
-        android:onClick="register_button_clicked"
-        android:layout_width="318dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:layout_marginTop="18dp"
         android:background="@android:color/transparent"
+        android:onClick="register_button_clicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_signup_confirm_pass" />
 
-    <Button
-        android:id="@+id/btn_signin_from_signup"
-        android:layout_width="70dp"
-        android:layout_height="31dp"
-        android:onClick="signin_button_clicked"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.835"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_signup" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
