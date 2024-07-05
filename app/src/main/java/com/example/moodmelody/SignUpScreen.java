@@ -86,7 +86,7 @@ public class SignUpScreen extends AppCompatActivity {
                         }
                     });
         }
-        reference.child(username).setValue(email);
+        reference.child(email.replace(".", ",")).setValue(username);
 
     }
 
