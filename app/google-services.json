@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1067766849638",
+    "project_id": "moodmelody-cbf46",
+    "storage_bucket": "moodmelody-cbf46.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067766849638:android:af34f74ef0de80db404da7",
+        "android_client_info": {
+          "package_name": "com.example.moodmelody"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByO1pz2aaEaydO0APxjyAp4sJ5CGQxYo0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
