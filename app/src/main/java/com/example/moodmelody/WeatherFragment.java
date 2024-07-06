@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +26,7 @@ public class WeatherFragment extends Fragment {
     private String mParam2;
 
     public WeatherFragment() {
+        Toast.makeText(getContext(), "INSIDE WEATHER FRAGMENT", Toast.LENGTH_SHORT).show();
         // Required empty public constructor
     }
 
@@ -49,6 +51,7 @@ public class WeatherFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Toast.makeText(getContext(), "INSIDE WEATHER FRAGMENT", Toast.LENGTH_SHORT).show();
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);

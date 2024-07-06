@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,6 +16,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentUris;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.media.AudioManager;
@@ -21,12 +26,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,14 +57,25 @@ public class HomeScreenMusicPlayer extends AppCompatActivity implements SongChan
     private Timer timer;
     private int current_song_list_position = 0;
     private MusicAdapter musicAdapter;
+    BottomNavigationView nav_bar;
+    Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.music_main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets; //placeholder
+//        });
+
+//        nav_bar.setOnItemSelectedListener(navListener);
 
         View decodeView = getWindow().getDecorView();
         int options = View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION;
         decodeView.setSystemUiVisibility(options);
         setContentView(R.layout.activity_home_screen_music_player);
+        nav_bar = findViewById(R.id.bottomNavigationView01);
 
         final LinearLayout search_btn = findViewById(R.id.search_btn);
         final LinearLayout menu_btn = findViewById(R.id.menu_btn);
@@ -85,6 +105,32 @@ public class HomeScreenMusicPlayer extends AppCompatActivity implements SongChan
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_MEDIA_AUDIO}, 1);
             Toast.makeText(this, "Line Ran", Toast.LENGTH_SHORT).show();
         }
+
+        nav_bar.setOnItemSelectedListener(item -> {
+
+            switch (item.getItemId()){
+
+                case R.id.Home:
+                    intent = new Intent(this, LiveChat.class);
+                    startActivity(intent);
+                    break;
+                case R.id.Face:
+                    intent = new Intent(this, CameraTakePicture.class);
+                    startActivity(intent);
+                    break;
+                case R.id.Weather:
+                    intent = new Intent(this, WeatherScreen.class);
+                    startActivity(intent);
+                    break;
+                case R.id.Setting:
+                    intent = new Intent(this, LoginScreen.class);
+                    startActivity(intent);
+                    break;
+            }
+
+            return true;
+        });
+
 
         next_btn.setOnClickListener(new View.OnClickListener() {
             @Override
